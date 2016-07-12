@@ -1,0 +1,593 @@
+﻿add_namespace = austria
+
+country_event = {
+	id = austria.1
+	title = austria.1.t
+	desc = austria.1.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = { # Surrender Istria
+		name = austria.1.a
+		ai_chance = {
+			factor = 30
+
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+			
+			modifier = { # Increase it again if other bordering nations are in Austria's faction
+				any_neighbor_country = {
+					NOT = { tag = AUS }
+					is_in_faction_with = AUS
+				}
+				factor = 20.0
+			}
+		}
+		AUS = { country_event = austria.2 }
+	}
+	option = { # Refuse anyway
+		name = austria.1.b
+		ai_chance = { 
+			factor = 70
+		}
+		
+		AUS = {
+			country_event = austria.3
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = ITA
+					generator = { 736 }
+				}
+			}
+		}
+	}
+}
+
+# Italy Surrenders
+country_event = {
+	id = austria.2
+	title = austria.1.t
+	desc = austria.2.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.2.a
+		736 = { add_core_of = AUS }
+		AUS = { transfer_state = 736 }
+	}
+}
+
+# Italy Refuses
+country_event = {
+	id = austria.3
+	title = austria.1.t
+	desc = austria.3.d
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.3.a
+		create_wargoal = {
+			type = take_state_focus
+			target = ITA
+			generator = { 736 }
+		}
+		add_state_claim = 736
+	}
+}
+
+country_event = {
+	id = austria.4
+	title = austria.4.t
+	desc = austria.4.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = { # Surrender czeckia
+		name = austria.4.a
+		ai_chance = {
+			factor = 85
+
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+		}
+		AUS = { country_event = austria.5 }
+	}
+	option = { # Refuse anyway
+		name = austria.4.b
+		ai_chance = { 
+			factor = 15
+		}
+		
+		AUS = {
+			country_event = austria.6
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = CZE
+					generator = { 9 }
+				}
+			}
+		}
+	}
+}
+
+# Czeckia Surrenders
+country_event = {
+	id = austria.5
+	title = austria.4.t
+	desc = austria.5.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.5.a
+		9 = {
+			if = {
+				limit = { is_owned_by = CZE }
+				add_core_of = AUS
+			}
+		}
+		75 = {
+			if = {
+				limit = { is_owned_by = CZE }
+				add_core_of = AUS
+			}
+		}
+		74 = {
+			if = {
+				limit = { is_owned_by = CZE }
+				add_core_of = AUS
+			}
+		}
+		72 = {
+			if = {
+				limit = { is_owned_by = CZE }
+				add_core_of = AUS
+			}
+		}
+		69 = {
+			if = {
+				limit = { is_owned_by = CZE }
+				add_core_of = AUS
+			}
+		}
+		annex_country = { target = CZE transfer_troops = yes }
+		set_country_flag = CZE_annexed
+	}
+}
+
+# Czeckia Refuses
+country_event = {
+	id = austria.6
+	title = austria.4.t
+	desc = austria.6.d
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.6.a
+		create_wargoal = {
+			type = take_state_focus
+			target = CZE
+			generator = { 9 }
+		}
+		add_state_claim = 9
+	}
+}
+
+# Romanian Puppet
+country_event = {
+	id = austria.7
+	title = austria.7.t
+	desc = austria.7.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Agree
+		name = austria.7.a
+		ai_chance = {
+			factor = 50
+		}
+		AUS = { country_event = austria.8 }
+	}
+	option = { # Refuse
+		name = austria.7.b
+		ai_chance = {
+			factor = 50
+		}
+		AUS = { 
+			country_event = { id = austria.9 days = 1 }
+		}
+	}
+}
+
+
+# Romania Resists
+country_event = {
+	id = austria.9
+	title = austria.9.t
+	desc = austria.9.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.9.a
+		create_wargoal = {
+			type = annex_everything
+			target = ROM
+		}
+	}
+}
+
+# Romania Gives in puppet
+country_event = {
+	id = austria.8
+	title = austria.7.t
+	desc = austria.8.d
+
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.8.a
+		ai_chance = { factor = 1 }
+		puppet = ROM
+	}
+}
+
+# Austria wants to join Allies
+country_event = {
+	id = austria.10
+	title = austria.10.t
+	desc = austria.10.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only = yes
+		
+	option = {
+		name = austria.10.a
+		ENG = { add_to_faction = AUS }
+		AUS = {
+			add_ai_strategy = {
+				type = alliance
+				id = "ENG"
+				value = 200
+			}
+		}
+	}
+	option = {
+		name = austria.10.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Austria wants to join Comintern
+country_event = {
+	id = austria.11
+	title = austria.11.t
+	desc = austria.11.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only = yes
+		
+	option = {
+		name = austria.11.a
+		SOV = { add_to_faction = AUS }
+		AUS = {
+			add_ai_strategy = {
+				type = alliance
+				id = "SOV"
+				value = 200
+			}
+		}
+	}
+	option = {
+		name = austria.11.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Austria wants to join Axis
+country_event = {
+	id = austria.12
+	title = austria.12.t
+	desc = austria.12.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only = yes
+		
+	option = {
+		name = austria.12.a
+		GER = { add_to_faction = AUS }
+		AUS = {
+			add_ai_strategy = {
+				type = alliance
+				id = "GER"
+				value = 200
+			}
+		}
+	}
+	option = {
+		name = austria.12.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Moldovan Demand Event
+country_event = {
+	id = austria.13
+	title = austria.13.t
+	desc = austria.13.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = { # Surrender Moldova
+		name = austria.13.a
+		ai_chance = {
+			factor = 85
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+		}
+		AUS = { country_event = austria.14 }
+	}
+	option = { # Refuse anyway
+		name = austria.13.b
+		ai_chance = { 
+			factor = 15
+		}
+		
+		AUS = {
+			country_event = austria.15
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = AUS
+					generator = { 79 }
+				}
+			}
+		}
+	}
+}
+
+# Romania Surrenders
+country_event = {
+	id = austria.14
+	title = austria.14.t
+	desc = austria.14.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.14.a
+		78 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 78 }
+			}
+		}
+		79 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 79 }
+			}
+		}
+		80 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 80 }
+			}
+		}
+	}
+}
+
+# Romania Refuses
+country_event = {
+	id = austria.15
+	title = austria.15.t
+	desc = austria.15.d
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.15.a
+		create_wargoal = {
+			type = take_state_focus
+			target = ROM
+			generator = { 78 }
+		}
+		add_state_claim = 78
+	}
+}
+
+
+#Serbian Demand Event
+country_event = {
+	id = austria.16
+	title = austria.16.t
+	desc = austria.16.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = { # Surrender 
+		name = austria.16.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+		}
+		AUS = { country_event = austria.17 }
+	}
+	option = { # Refuse anyway
+		name = austria.16.b
+		ai_chance = { 
+			factor = 10
+		}
+		
+		AUS = {
+			country_event = austria.18
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = AUS
+					generator = { 104 }
+				}
+			}
+		}
+	}
+}
+
+# Serbia Surrenders
+country_event = {
+	id = austria.17
+	title = austria.17.t
+	desc = austria.17.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.17.a
+		104 = {
+			if = {
+				limit = { is_owned_by = YUG }
+				add_core_of = AUS
+				AUS = { transfer_state = 104 }
+			}
+		}
+	}	
+}
+
+# Serbia Refuses
+country_event = {
+	id = austria.18
+	title = austria.18.t
+	desc = austria.18.d
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.18.a
+		create_wargoal = {
+			type = take_state_focus
+			target = YUG
+			generator = { 104 }
+		}
+		add_state_claim = 104
+	}
+}
+
+#Romania Demand Event
+country_event = {
+	id = austria.19
+	title = austria.19.t
+	desc = austria.19.d
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = { # Surrender 
+		name = austria.19.a
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				is_puppet = yes
+			}
+		}
+		AUS = { country_event = austria.20 }
+	}
+	option = { # Refuse anyway
+		name = austria.19.b
+		ai_chance = { 
+			factor = 20
+		}
+		
+		AUS = {
+			country_event = austria.21
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state_focus
+					target = AUS
+					generator = { 46 }
+				}
+			}
+		}
+	}
+}
+
+# Serbia Surrenders
+country_event = {
+	id = austria.20
+	title = austria.20.t
+	desc = austria.20.d
+	picture = GFX_report_event_german_politician_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.20.a
+		46 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 46 }
+			}
+		}
+		81 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 81 }
+			}
+		}
+		77 = {
+			if = {
+				limit = { is_owned_by = ROM }
+				AUS = { transfer_state = 77 }
+			}
+		}
+	}	
+}
+
+# Serbia Refuses
+country_event = {
+	id = austria.21
+	title = austria.21.t
+	desc = austria.21.d
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria.21.a
+		create_wargoal = {
+			type = take_state_focus
+			target = ROM
+			generator = { 46 }
+		}
+		add_state_claim = 46
+	}
+}
