@@ -1,0 +1,1912 @@
+focus_tree = {
+	id = austrian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+	}
+	
+	default = no
+	
+	focus = {
+		id = AUS_Urbanize_Carpathia
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 2
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = { limit = { 70 = { is_owned_by = AUS } }
+				70 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 84 = { is_owned_by = AUS } }
+				84 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 71 = { is_owned_by = AUS } }
+				71 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 73 = { is_owned_by = AUS } }
+				73 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 76 = { is_owned_by = AUS } }
+				76 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_solakian_pit_mines
+		icon = GFX_goal_generic_production
+		text = AUS_solakian_pit_mines
+		prerequisite = { focus = AUS_Urbanize_Carpathia }
+		available = {
+			AUS = {
+				controls_state = 664
+			}
+		}
+		
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_resource = {
+				type = tungsten
+				amount = 8
+				state = 664
+			}
+		}
+	}	
+	
+	focus = {
+		id = AUS_Transylvanian_Black_Gold
+		icon = GFX_goal_generic_production
+		text = AUS_Transylvanian_Black_Gold
+		prerequisite = { focus = AUS_solakian_pit_mines }
+		
+		x = 0
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 40
+				state = 84
+			}
+			add_resource = {
+				type = oil
+				amount = 15
+				state = 76
+			}
+			add_resource = {
+				type = oil
+				amount = 12
+				state = 82
+			}
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 83
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_Danubian_Steelworks
+		icon = GFX_goal_generic_construct_civ_factory
+		text = AUS_Danubian_Steelworks
+		prerequisite = { focus = AUS_Transylvanian_Black_Gold }
+		
+		x = 0
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 48
+				state = 45
+			}
+			45 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_We_Can_Rebuild_Him
+		icon = GFX_goal_generic_construct_civ_factory
+		text = AUS_We_Can_Rebuild_Him
+		prerequisite = { focus = AUS_Urbanize_Carpathia }
+		x = 2
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = AUS_Capitalize_on_Tesla
+		icon = GFX_focus_research
+		text = AUS_Capitalize_on_Tesla
+		prerequisite = { focus = AUS_We_Can_Rebuild_Him }
+		x = 2
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = AUS_Regional_Revitalization
+		icon = GFX_goal_generic_construct_civ_factory
+		text = AUS_Regional_Revitalization
+		prerequisite = { focus = AUS_Urbanize_Carpathia }
+		x = 4
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			every_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
+		completion_reward = {
+			if = { limit = { 103 = { is_owned_by = AUS } }
+				103 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 109 = { is_owned_by = AUS } }
+				109 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			if = { limit = { 102 = { is_owned_by = AUS } }
+				102 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_Support_Arms_Makers
+		icon = GFX_goal_generic_construct_mil_factory
+		text = AUS_Support_Arms_Makers
+		prerequisite = { focus = AUS_Regional_Revitalization }
+		
+		x = 4
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			39 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			153 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			4 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			152 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_extra_research_slot
+		icon = GFX_focus_research
+		available = {
+		}
+		prerequisite = {
+			focus = AUS_Support_Arms_Makers
+			focus = AUS_Capitalize_on_Tesla
+		}
+		x = 3
+		y = 3
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = AUS_nuclear_effort
+		icon = GFX_focus_wonderweapons
+		mutually_exclusive = { focus = AUS_jet_effort }
+		available = {
+		}
+		prerequisite = { focus = AUS_extra_research_slot }
+		x = 2
+		y = 4
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_nuclear_effort
+				bonus = 0.5
+				category = nuclear
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = AUS_jet_effort
+		mutually_exclusive = { focus = AUS_nuclear_effort }
+		icon = GFX_focus_rocketry
+		available = {
+		}
+		prerequisite = { focus = AUS_extra_research_slot }
+		x = 4
+		y = 4
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = FRA_jet_effort
+				bonus = 0.5
+				uses = 3
+				category = jet_technology
+			}
+		}
+	}
+	
+		focus = {
+		id = AUS_extra_research_slot_2
+		icon = GFX_focus_research
+		prerequisite = { 
+			focus = AUS_jet_effort
+			focus = AUS_nuclear_effort 
+		}
+		available = {
+			num_of_factories > 100
+		}
+		x = 3
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	##Political
+	
+	focus = {
+		id = AUS_innsbruck_accord
+		icon = GFX_goal_generic_national_unity
+
+		x = 10
+		y = 0
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = AUS_habsburg_legacy
+		mutually_exclusive = { focus = AUS_revoke_royal_titles }
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = AUS_innsbruck_accord }
+		x = 9
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_ideas = habsburg_legacy
+		}
+	}
+	
+	focus = {
+		id = AUS_revoke_royal_titles
+		mutually_exclusive = { focus = AUS_habsburg_legacy }
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = AUS_innsbruck_accord }
+
+		x = 11
+		y = 1
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = AUS_make_austria_great_again
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = AUS_habsburg_legacy }
+
+		x = 6
+		y = 2
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			#add_ideas = eduard_freiherr
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = aus_eduard_freiherr
+		}
+	}
+	
+	focus = {
+		id = aus_indoctrination_focus
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = AUS_make_austria_great_again }
+		x = 6
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_ideas = aus_indoctrination_focus
+		}
+	}
+	
+	focus = {
+		id = aus_paramilitarism
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = aus_indoctrination_focus }
+		x = 6
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = aus_paramilitarism_focus
+		}
+	}
+	
+	focus = {
+		id = AUS_italian_border_forts
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = aus_paramilitarism }
+		mutually_exclusive = { focus = AUS_demand_istria }
+		x = 5
+		y = 5
+		cost = 10
+		completion_reward = {
+			
+			103 = {
+				custom_effect_tooltip = AUS_italian_wall_fortsa
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11564
+						instant_build = yes
+					}
+				}
+			}
+			
+			102 = {
+				custom_effect_tooltip = AUS_italian_wall_fortsb
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9627 
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3631
+						instant_build = yes
+					}
+				}
+			}
+			
+			153 = {
+				custom_effect_tooltip = AUS_italian_wall_fortsc
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6673
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 671
+						instant_build = yes
+					}
+				}
+			}
+			
+			39 = {
+				custom_effect_tooltip = AUS_italian_wall_fortsd
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 9598
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11615
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 656
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11598
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6631
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6675
+						instant_build = yes
+					}
+				}
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_istria
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = aus_paramilitarism }
+		mutually_exclusive = { focus = AUS_italian_border_forts }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				ITA = { is_puppet_of = AUS }
+				AUS = { owns_state = 736 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { ITA = { owns_state = 736 } }
+				has_war_with = ITA
+			}
+		}
+		cancel_if_invalid = no
+		x = 7
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					ITA = { owns_state = 736 }
+				}
+				ITA = {
+					country_event = {
+						id = austria.1
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						ITA = { owns_state = 736 }
+					}
+				}
+				736 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_czeckia
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = AUS_demand_istria
+			focus = AUS_italian_border_forts 
+		}
+		mutually_exclusive = { focus = AUS_puppet_romania }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				CZE = { is_puppet_of = AUS }
+				AUS = { owns_state = 9 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { CZE = { owns_state = 9 } }
+				has_war_with = CZE
+			}
+		}
+		cancel_if_invalid = no
+		x = 5
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					CZE = { owns_state = 9 }
+				}
+				CZE = {
+					country_event = {
+						id = austria.4
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						CZE = { owns_state = 9 }
+					}
+				}
+				9 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_puppet_romania
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = AUS_demand_istria
+			focus = AUS_italian_border_forts 
+		}
+		mutually_exclusive = { focus = AUS_demand_czeckia}
+		cancel_if_invalid = no
+		x = 7
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+		ROM = {
+				country_event = {
+					id = austria.7
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_serbian_wargoal
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { 
+			focus = AUS_puppet_romania
+			focus = AUS_demand_czeckia
+		}
+		cancel_if_invalid = no
+		x = 6
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = YUG
+				generator = { 107 }
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_poland_wargoal
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { 
+			focus = AUS_serbian_wargoal
+		}
+		cancel_if_invalid = no
+		x = 6
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = POL
+				generator = { 88 }
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_internationalism_focus
+		icon = GFX_goal_support_communism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = AUS_revoke_royal_titles }
+		mutually_exclusive = { 
+			focus = AUS_liberty_ethos 
+			focus = AUS_nationalism_focus
+		}
+		available = {
+			OR = {
+				has_government = communism
+				has_government = neutrality
+			}
+		}
+		x = 14
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_ideas = aus_communist_pressure
+		}
+	}
+	
+	focus = {
+		id = AUS_liberty_ethos
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = AUS_revoke_royal_titles }
+		mutually_exclusive = { 
+			focus = AUS_internationalism_focus
+			focus = AUS_nationalism_focus
+		}
+		available = {
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+		}
+		x = 12
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_ideas = aus_democratic_influence
+		}
+	}
+	focus = {
+		id = AUS_nationalism_focus
+		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = AUS_revoke_royal_titles }
+		mutually_exclusive = { 
+			focus = AUS_liberty_ethos 
+			focus = AUS_internationalism_focus
+		}
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		x = 16
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_ideas = aus_fascist_influence
+		}
+	}
+	
+	focus = {
+		id = aus_deterrence
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = AUS_liberty_ethos }
+		x = 10
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+	
+	focus = {
+		id = AUS_Carpathian_shield
+		icon = GFX_goal_generic_construct_military
+		mutually_exclusive = { focus = AUS_german_border_forts }
+		prerequisite = { focus = aus_deterrence }
+		x = 11
+		y = 4
+		cost = 10
+		completion_reward = {
+			
+			71 = {
+				custom_effect_tooltip = AUS_carpathian_wall_fortsa
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 11554
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 581
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3550
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3581
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6604
+						instant_build = yes
+					}
+				}
+			}
+			
+			73 = {
+				custom_effect_tooltip = AUS_carpathian_wall_fortsb
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 11536 
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9563
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6571
+						instant_build = yes
+					}
+				}
+			}
+			
+			76 = {
+				custom_effect_tooltip = AUS_carpathian_wall_fortsc
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9704
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 727
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9685
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 711
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3689
+						instant_build = yes
+					}
+				}
+			}
+			
+			84 = {
+				custom_effect_tooltip = AUS_carpathian_wall_fortsd
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 690
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	
+	focus = {
+		id = AUS_german_border_forts
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = aus_deterrence }
+		mutually_exclusive = { focus = AUS_Carpathian_shield }
+		x = 9
+		y = 4
+		cost = 10
+		completion_reward = {
+			
+			4 = {
+				custom_effect_tooltip = AUS_german_border_fortsa
+				hidden_effect = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			
+			152 = {
+				custom_effect_tooltip = AUS_german_border_fortsb
+				custom_effect_tooltip = AUS_german_border_fortsc
+				hidden_effect = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 732
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3703
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6708
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 688
+						instant_build = yes
+					}
+				}
+			}
+			
+			153 = {
+				custom_effect_tooltip = AUS_german_border_fortsd
+				custom_effect_tooltip = AUS_german_border_fortse
+				hidden_effect = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 3675
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11634
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 673
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9636
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6678
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6680
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_venetian_ties
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { 
+			focus = AUS_german_border_forts 
+			focus = AUS_Carpathian_shield 
+		}
+		x = 10
+		y = 5
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = ITA
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = Venetian_Ties
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_join_the_allies
+		icon = GFX_goal_generic_major_alliance
+		mutually_exclusive = { focus = AUS_balkan_influence }
+		prerequisite = { focus = AUS_venetian_ties }
+		x = 9
+		y = 6
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			every_country = {
+				ENG = { country_event = { id = austria.10 days = 1 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_balkan_influence
+		icon = GFX_goal_generic_major_alliance
+		mutually_exclusive = { focus = AUS_join_the_allies }
+		prerequisite = { focus = AUS_venetian_ties }
+		x = 11
+		y = 6
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = ROM
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = austrian_influences
+			}
+			every_country = {
+				limit = {
+					original_tag = BUL
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = austrian_influences
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_balkan_sphere
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = AUS_balkan_influence }
+		x = 11
+		y = 7
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = YUG
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = austrian_influences
+			}
+			every_country = {
+				limit = {
+					original_tag = ALB
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = austrian_influences
+			}
+			every_country = {
+				limit = {
+					original_tag = GRE
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+				add_ideas = austrian_influences
+			}
+			every_country = {
+				limit = {
+					original_tag = AUS
+				}
+				add_opinion_modifier = { target = AUS modifier = democratic_leanings_good }
+			}
+			add_ideas = balkan_sphere
+		}
+	}
+	
+	focus = {
+		id = AUS_join_the_comintern
+		icon = GFX_goal_support_communism
+		mutually_exclusive = { focus = AUS_join_the_axis }
+		prerequisite = { focus = AUS_internationalism_focus }
+		x = 13
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			every_country = {
+				SOV = { country_event = { id = austria.11 days = 1 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_first
+		icon = GFX_goal_support_communism
+		mutually_exclusive = { focus = AUS_join_the_comintern }
+		prerequisite = { 
+			focus = AUS_internationalism_focus 
+			focus = AUS_nationalism_focus
+		}
+		x = 15
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = austria_first
+		}
+	}
+	
+	focus = {
+		id = AUS_join_the_axis
+		icon = GFX_goal_support_communism
+		mutually_exclusive = { focus = AUS_first }
+		prerequisite = { focus = AUS_nationalism_focus }
+		x = 17
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			every_country = {
+				GER = { country_event = { id = austria.12 days = 1 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_workers_culture
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = AUS_join_the_comintern }
+		x = 13
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_ideas = workers_culture
+		}
+	}
+	
+	focus = {
+		id = aus_military_youth
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = AUS_join_the_axis }
+		x = 17
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_czeckia_b
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = AUS_workers_culture
+			focus = AUS_first
+		}
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				CZE = { is_puppet_of = AUS }
+				AUS = { owns_state = 9 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { CZE = { owns_state = 9 } }
+				has_war_with = CZE
+			}
+		}
+		cancel_if_invalid = no
+		x = 14
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					CZE = { owns_state = 9 }
+				}
+				CZE = {
+					country_event = {
+						id = austria.4
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						CZE = { owns_state = 9 }
+					}
+				}
+				9 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_moldova
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = aus_military_youth
+			focus = AUS_first
+		}
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				ROM = { is_puppet_of = AUS }
+				AUS = { owns_state = 78 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { ROM = { owns_state = 78 } }
+				has_war_with = ROM
+			}
+		}
+		cancel_if_invalid = no
+		x = 16
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					ROM = { owns_state = 78 }
+				}
+				ROM = {
+					country_event = {
+						id = austria.13
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						ROM = { owns_state = 78 }
+					}
+				}
+				78 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_bosnia
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = AUS_demand_moldova
+			focus = AUS_demand_czeckia_b
+		}
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				YUG = { is_puppet_of = AUS }
+				AUS = { owns_state = 104 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { YUG = { owns_state = 104 } }
+				has_war_with = YUG
+			}
+		}
+		cancel_if_invalid = no
+		x = 15
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					YUG = { owns_state = 104 }
+				}
+				YUG = {
+					country_event = {
+						id = austria.16
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						YUG = { owns_state = 104 }
+					}
+				}
+				104 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_demand_rest_of_romania
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = AUS_demand_bosnia }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				ROM = { is_puppet_of = AUS }
+				AUS = { owns_state = 46 }			
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = { ROM = { owns_state = 46 } }
+				has_war_with = ROM
+			}
+		}
+		cancel_if_invalid = no
+		x = 16
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if =  {
+				limit = {
+					ROM = { owns_state = 46 }
+				}
+				ROM = {
+					country_event = {
+						id = austria.19
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						ROM = { owns_state = 46 }
+					}
+				}
+				46 = {
+					add_claim_by = AUS
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_serbian_claims
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = AUS_demand_bosnia }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				YUG = { is_puppet_of = AUS }
+				AUS = { owns_state = 46 }			
+			}
+		}
+		cancel_if_invalid = no
+		x = 14
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = YUG
+				generator = { 107 }
+			}
+			add_state_claim = 107
+		}
+	}
+	
+	focus = {
+		id = AUS_bulgarian_claims
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = AUS_demand_rest_of_romania }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				BUL = { is_puppet_of = AUS }
+				AUS = { owns_state = 46 }			
+			}
+		}
+		cancel_if_invalid = no
+		x = 16
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = BUL
+				generator = { 48 }
+			}
+			add_state_claim = 48
+		}
+	}
+	
+	focus = {
+		id = AUS_albanian_claims
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = AUS_serbian_claims }
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				ALB = { is_puppet_of = AUS }
+				AUS = { owns_state = 44 }			
+			}
+		}
+		cancel_if_invalid = no
+		x = 14
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ALB
+				generator = { 44 }
+			}
+		add_state_claim = 44
+		}
+	}
+	
+	focus = {
+		id = AUS_italian_wargoal
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { 
+			focus = AUS_albanian_claims 
+			focus = AUS_bulgarian_claims
+		}
+		available = {
+			is_puppet = no			
+		}
+		bypass = {
+			OR = {
+				ITA = { is_puppet_of = AUS }
+				ITA = { owns_state = 2 }			
+			}
+		}
+		cancel_if_invalid = no
+		x = 15
+		y = 9
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ITA
+				generator = { 2 }
+			}
+		add_state_claim = 2
+		}
+	}
+	
+	### Army Tree
+	
+	focus = {
+		id = aus_Promotion_By_Merit
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 21
+		y = 0
+		cost = 10
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_doctrine_ii
+		icon = GFX_goal_generic_allies_build_infantry
+		mutually_exclusive = { focus = AUS_Advanced_Strategems }
+		prerequisite = { focus = aus_Promotion_By_Merit }
+		x = 20
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_better_provisions
+		icon = GFX_goal_generic_allies_build_infantry
+	 	prerequisite = { focus = aus_doctrine_ii }
+		x = 19
+		y = 2
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_ideas = AUS_better_provisions_focus
+		}
+	}
+	
+	focus = {
+		id = AUS_heavy_battery
+		icon = GFX_goal_generic_army_artillery2
+	 	prerequisite = { focus = AUS_better_provisions }
+		x = 19
+		y = 3
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_artillery_focus
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+			add_tech_bonus = {
+				name = FRA_artillery_focus
+				ahead_reduction = 1
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_Advanced_Strategems
+		icon = GFX_goal_generic_allies_build_infantry
+	 	prerequisite = { focus = aus_Promotion_By_Merit }
+		x = 22
+		y = 1
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = cat_grand_battle_plan
+				bonus = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_automotive_integration
+		icon = GFX_goal_generic_build_tank
+	 	prerequisite = { focus = AUS_Advanced_Strategems }
+		x = 21
+		y = 2
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				uses = 1
+				technology = motorised_infantry
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				technology = motorised_infantry
+			}
+		}
+	}
+	
+	focus = {
+		id = AUS_Habsburglars
+		icon = GFX_goal_generic_army_tanks
+	 	prerequisite = { focus = AUS_automotive_integration }
+		x = 21
+		y = 3
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_heavy_armor_focus
+				bonus = 0.5
+				uses = 1
+				category = cat_heavy_armor
+			}
+			add_tech_bonus = {
+				name = FRA_heavy_armor_focus
+				bonus = 0.5
+				ahead_reduction = 1
+				category = cat_heavy_armor
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 25
+		y = 0
+		cost = 10
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_light_air_investment
+		prerequisite = { focus = aus_aviation_effort }
+		mutually_exclusive = { focus = aus_carpet_bombing }
+		icon = GFX_goal_generic_build_airforce
+		x = 24
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = FRA_fighter_focus
+				ahead_reduction = 1
+				category = light_fighter
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_air_support
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = aus_light_air_investment }
+		prerequisite = { focus = AUS_Advanced_Strategems }
+		x = 23
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_sons_of_the_sky
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = aus_air_support }
+		x = 23
+		y = 3
+		cost = 10
+		completion_reward = {
+			hidden_effect = {
+				set_rule = {
+					can_use_kamikaze_pilots = yes
+				}
+			}
+			custom_effect_tooltip = kamikaze_focus_tooltip
+			add_ideas = austrian_fighter_discount
+		}
+	}
+	
+	focus = {
+		id = aus_carpet_bombing
+		prerequisite = { focus = aus_aviation_effort }
+		mutually_exclusive = { focus = aus_light_air_investment }
+		icon = GFX_goal_generic_build_airforce
+		x = 26
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = bomber_bonus
+				ahead_reduction = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = aus_air_doctrine_i
+		prerequisite = { 
+			focus = aus_carpet_bombing 
+			focus = aus_light_air_investment
+		}
+		icon = GFX_goal_generic_build_airforce
+		x = 25
+		y = 2
+		cost = 10
+		completion_reward = {
+			air_experience = 50
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+}
